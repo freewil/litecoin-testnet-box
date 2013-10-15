@@ -1,5 +1,5 @@
-BITCOIND=bitcoind
-BITCOINGUI=bitcoin-qt
+BITCOIND=litecoind
+BITCOINGUI=litecoin-qt
 B1_FLAGS=
 B2_FLAGS=
 B1=-datadir=1 $(B1_FLAGS)
