@@ -1,5 +1,6 @@
 BITCOIND=litecoind
 BITCOINGUI=litecoin-qt
+MINER=minerd # https://github.com/pooler/cpuminer
 B1_FLAGS=
 B2_FLAGS=
 B1=-datadir=1 $(B1_FLAGS)
@@ -14,10 +15,10 @@ start-gui:
 	$(BITCOINGUI) $(B2) &
 
 generate-true:
-	$(BITCOIND) $(B1) setgenerate true
+	$(MINER) --algo scrypt --url http://127.0.0.1:19101 --user admin1 --pass 123
 
 generate-false:
-	$(BITCOIND) $(B1) setgenerate false
+	killall $(MINER)
 
 getinfo:
 	$(BITCOIND) $(B1) getinfo
